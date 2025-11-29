@@ -1,0 +1,40 @@
+@model List<Horario>
+@using Microsoft.AspNetCore.Http
+@{
+    var rol = Context.Session.GetString("Rol");
+}
+
+<h2>Listado de Horarios</h2>
+
+@if (rol == "Administrador")
+{
+    <a href="/Horarios/Crear" class="btn btn-primary mb-3">Crear nuevo</a>
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Días</th>
+            <th>Hora Inicio</th>
+            <th>Tipo Duración</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var h in Model)
+        {
+            <tr>
+                <td>@h.Dias</td>
+                <td>@h.HoraInicio</td>
+                <td>@h.TipoDuracion</td>
+                <td>
+                    @if (rol == "Administrador")
+                    {
+                        <a href="/Horarios/Editar/@h.Id" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="/Horarios/Eliminar/@h.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

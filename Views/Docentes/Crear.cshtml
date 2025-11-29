@@ -1,0 +1,52 @@
+@model Docente
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Crear Docente";
+    var rol = Context.Session.GetString("Rol");
+}
+
+<h2 class="text-center">Crear Docente</h2>
+
+@if (!string.IsNullOrEmpty(rol) && rol == "Administrador")
+{
+    <form asp-action="Crear" method="post">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Nombre</th>
+                <td><input asp-for="Nombre" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Apellidos</th>
+                <td><input asp-for="Apellidos" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Teléfono</th>
+                <td><input asp-for="Telefono" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Correo</th>
+                <td><input asp-for="Correo" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Documento Nacional</th>
+                <td><input asp-for="DocumentoNacional" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Fecha Ingreso</th>
+                <td><input asp-for="FechaIngreso" type="date" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-end">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a href="/Docentes" class="btn btn-secondary">Cancelar</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        No tienes permisos para crear docentes.
+    </div>
+}

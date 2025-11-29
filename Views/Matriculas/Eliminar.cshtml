@@ -1,0 +1,13 @@
+@model proyecto_c_.Models.Matricula
+
+<h2>Eliminar Matrícula</h2>
+
+<div class="alert alert-danger">
+    ¿Seguro que deseas eliminar la matrícula del estudiante <strong>@Model.IdEstudiante</strong> en el programa <strong>@Model.IdPrograma</strong>?
+</div>
+
+<form asp-action="EliminarConfirmado" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="/Matriculas" class="btn btn-secondary">Cancelar</a>
+</form>

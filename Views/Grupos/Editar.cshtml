@@ -1,0 +1,28 @@
+@model Grupo
+
+<h2>Editar Grupo</h2>
+
+<form asp-action="Editar" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Id Materia</th>
+            <td><input asp-for="IdMateria" class="form-control" /></td>
+        </tr>
+        <tr>
+            <th>Id Docente</th>
+            <td><input asp-for="IdDocente" class="form-control" /></td>
+        </tr>
+        <tr>
+            <th>Id Horario</th>
+            <td><input asp-for="IdHorario" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-end">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <a href="/Grupos" class="btn btn-secondary">Cancelar</a>
+            </td>
+        </tr>
+    </table>
+</form>

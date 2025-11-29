@@ -1,0 +1,40 @@
+@model Horario
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Crear Horario";
+    var rol = Context.Session.GetString("Rol");
+}
+
+<h2 class="text-center">Crear Horario</h2>
+
+@if (!string.IsNullOrEmpty(rol) && rol == "Administrador")
+{
+    <form asp-action="Crear" method="post">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Días</th>
+                <td><input asp-for="Dias" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Hora Inicio</th>
+                <td><input asp-for="HoraInicio" type="time" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Tipo Duración</th>
+                <td><input asp-for="TipoDuracion" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-end">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a href="/Horarios" class="btn btn-secondary">Cancelar</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        No tienes permisos para crear horarios.
+    </div>
+}

@@ -1,8 +1,99 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model proyecto_c_.Models.HomeViewModel
+@using Microsoft.AspNetCore.Http
+@{
+    var rol = Context.Session.GetString("Rol");
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h2 class="text-center mb-4"> Matriculas U.C.A 📊 </h2>
+
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card border-primary">
+            <div class="card-body">
+                <h5 class="card-title">Estudiantes</h5>
+                <p class="card-text">@Model.TotalEstudiantes registrados</p>
+                <a href="/Estudiantes" class="btn btn-outline-primary btn-sm">Ver módulo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card border-success">
+            <div class="card-body">
+                <h5 class="card-title">Docentes</h5>
+                <p class="card-text">@Model.TotalDocentes registrados</p>
+                <a href="/Docentes" class="btn btn-outline-success btn-sm">Ver módulo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card border-info">
+            <div class="card-body">
+                <h5 class="card-title">Materias</h5>
+                <p class="card-text">@Model.TotalMaterias registradas</p>
+                <a href="/Materias" class="btn btn-outline-info btn-sm">Ver módulo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card border-warning">
+            <div class="card-body">
+                <h5 class="card-title">Programas Académicos</h5>
+                <p class="card-text">@Model.TotalProgramas registrados</p>
+                <a href="/Programas" class="btn btn-outline-warning btn-sm">Ver módulo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card border-secondary">
+            <div class="card-body">
+                <h5 class="card-title">Horarios</h5>
+                <p class="card-text">@Model.TotalHorarios registrados</p>
+                <a href="/Horarios" class="btn btn-outline-secondary btn-sm">Ver módulo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card border-dark">
+            <div class="card-body">
+                <h5 class="card-title">Matrículas</h5>
+                <p class="card-text">@Model.TotalMatriculas registradas</p>
+                <a href="/Matriculas" class="btn btn-outline-dark btn-sm">Ver módulo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card border-danger">
+            <div class="card-body">
+                <h5 class="card-title">Grupos</h5>
+                <p class="card-text">@Model.TotalGrupos registrados</p>
+                <a href="/Grupos" class="btn btn-outline-danger btn-sm">Ver módulo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card border-primary">
+            <div class="card-body">
+                <h5 class="card-title">Documentos Estudiante</h5>
+                <p class="card-text">@Model.TotalDocumentos registrados</p>
+                <a href="/DocumentosEstudiante" class="btn btn-outline-primary btn-sm">Ver módulo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card border-success">
+            <div class="card-body">
+                <h5 class="card-title">Datos Estudiante</h5>
+                <p class="card-text">@Model.TotalDatosEstudiante registrados</p>
+                <a href="/DatosEstudiante" class="btn btn-outline-success btn-sm">Ver módulo</a>
+            </div>
+        </div>
+    </div>
 </div>

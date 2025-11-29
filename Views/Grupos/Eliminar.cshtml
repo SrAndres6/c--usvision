@@ -1,0 +1,8 @@
+@model Grupo
+<h2>Eliminar Grupo</h2>
+<p>¿Estás seguro de eliminar el grupo con Id @Model.Id?</p>
+<form asp-action="EliminarConfirmado" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Eliminar</button>
+    <a href="/Grupos" class="btn btn-secondary">Cancelar</a>
+</form>

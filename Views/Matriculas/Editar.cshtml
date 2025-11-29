@@ -1,0 +1,46 @@
+@model proyecto_c_.Models.Matricula
+
+<h2>Editar Matrícula</h2>
+
+<form asp-action="Editar" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Estudiante</th>
+            <td>
+                <input asp-for="IdEstudiante" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <th>Programa</th>
+            <td>
+                <input asp-for="IdPrograma" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <th>Valor</th>
+            <td>
+                <input asp-for="Valor" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <th>Periodo</th>
+            <td>
+                <input asp-for="Periodo" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <th>Fecha Matrícula</th>
+            <td>
+                <input asp-for="FechaMatricula" type="date" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-end">
+                <button type="submit" class="btn btn-warning">Actualizar</button>
+                <a href="/Matriculas" class="btn btn-secondary">Cancelar</a>
+            </td>
+        </tr>
+    </table>
+</form>

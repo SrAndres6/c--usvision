@@ -1,0 +1,40 @@
+@model List<Grupo>
+@using Microsoft.AspNetCore.Http
+@{
+    var rol = Context.Session.GetString("Rol");
+}
+
+<h2>Listado de Grupos</h2>
+
+@if (rol == "Administrador")
+{
+    <a href="/Grupos/Crear" class="btn btn-primary mb-3">Crear nuevo</a>
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id Materia</th>
+            <th>Id Docente</th>
+            <th>Id Horario</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var g in Model)
+        {
+            <tr>
+                <td>@g.IdMateria</td>
+                <td>@g.IdDocente</td>
+                <td>@g.IdHorario</td>
+                <td>
+                    @if (rol == "Administrador")
+                    {
+                        <a href="/Grupos/Editar/@g.Id" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="/Grupos/Eliminar/@g.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

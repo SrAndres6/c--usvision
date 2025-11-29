@@ -1,4 +1,4 @@
-namespace c__usvision.Models;
+namespace proyecto_c_.Models;
 
 public class ErrorViewModel
 {

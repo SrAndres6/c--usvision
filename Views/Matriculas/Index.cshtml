@@ -1,0 +1,35 @@
+@model IEnumerable<proyecto_c_.Models.Matricula>
+
+<h2>Listado de Matrículas</h2>
+<a href="/Matriculas/Crear" class="btn btn-primary">Nueva Matrícula</a>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Estudiante</th>
+            <th>Programa</th>
+            <th>Valor</th>
+            <th>Periodo</th>
+            <th>Fecha Matrícula</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.Id</td>
+            <td>@m.IdEstudiante</td>
+            <td>@m.IdPrograma</td>
+            <td>@m.Valor</td>
+            <td>@m.Periodo</td>
+            <td>@m.FechaMatricula.ToShortDateString()</td>
+            <td>
+                <a href="/Matriculas/Editar/@m.Id" class="btn btn-sm btn-warning">Editar</a>
+                <a href="/Matriculas/Eliminar/@m.Id" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

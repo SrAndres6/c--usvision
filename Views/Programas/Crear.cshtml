@@ -1,0 +1,36 @@
+@model proyecto_c_.Models.Docente
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Crear Docente";
+    var rol = Context.Session.GetString("Rol");
+}
+
+<h2 class="text-center">Crear Docente</h2>
+
+@if (!string.IsNullOrEmpty(rol) && rol == "Administrador")
+{
+    <form asp-action="Crear" method="post" class="form-container">
+        <table class="form-table table table-bordered table-striped">
+            <tr>
+                <th>Nombre:</th>
+                <td><input asp-for="Nombre" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Especialidad:</th>
+                <td><input asp-for="Especialidad" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a href="/Docentes" class="btn btn-secondary">Cancelar</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        No tienes permisos para crear docentes.
+    </div>
+}

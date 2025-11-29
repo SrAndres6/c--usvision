@@ -1,0 +1,40 @@
+@model Grupo
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Crear Grupo";
+    var rol = Context.Session.GetString("Rol");
+}
+
+<h2 class="text-center">Crear Grupo</h2>
+
+@if (!string.IsNullOrEmpty(rol) && rol == "Administrador")
+{
+    <form asp-action="Crear" method="post" class="form-container">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th style="width: 30%">Id Materia</th>
+                <td><input asp-for="IdMateria" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Id Docente</th>
+                <td><input asp-for="IdDocente" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Id Horario</th>
+                <td><input asp-for="IdHorario" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a href="/Grupos" class="btn btn-secondary">Cancelar</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        No tienes permisos para crear grupos.
+    </div>
+}

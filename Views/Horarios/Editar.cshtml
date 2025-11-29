@@ -1,0 +1,28 @@
+@model Horario
+
+<h2>Editar Horario</h2>
+
+<form asp-action="Editar" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Días</th>
+            <td><input asp-for="Dias" class="form-control" /></td>
+        </tr>
+        <tr>
+            <th>Hora Inicio</th>
+            <td><input asp-for="HoraInicio" type="time" class="form-control" /></td>
+        </tr>
+        <tr>
+            <th>Tipo Duración</th>
+            <td><input asp-for="TipoDuracion" class="form-control" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-end">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <a href="/Horarios" class="btn btn-secondary">Cancelar</a>
+            </td>
+        </tr>
+    </table>
+</form>

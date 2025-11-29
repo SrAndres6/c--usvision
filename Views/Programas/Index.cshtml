@@ -1,0 +1,38 @@
+@model List<ProgramaAcademico>
+@using Microsoft.AspNetCore.Http
+@{
+    var rol = Context.Session.GetString("Rol");
+}
+
+<h2>Listado de Programas Académicos</h2>
+
+@if (rol == "Administrador")
+{
+    <a href="/Programas/Crear" class="btn btn-primary mb-3">Crear nuevo</a>
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Nombre</td>
+                <td>@p.Descripcion</td>
+                <td>
+                    @if (rol == "Administrador")
+                    {
+                        <a href="/Programas/Editar/@p.Id" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="/Programas/Eliminar/@p.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
